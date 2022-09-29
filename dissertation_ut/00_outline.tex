@@ -1,0 +1,113 @@
+%% utexasthesis.cls is available from https://github.com/linguistics/utexas-latex
+\documentclass[12pt, onehalfspacing]{utexasthesis}
+%\linespread{1.3}
+
+%% Required fields
+%% ===============
+%% Full official title of your thesis (use \\ to force a line break)
+\title{Your Dissertation title}
+%% Your full official name
+\author{(Your name here)}
+%% Month and year of graduation (month may be May, August, or December)
+\graduationdate{May}{2023}
+%% Your thesis supervisor, full name only
+\supervisor{(Your Supervisor)}
+%% Other committee members full names, comma-separated.
+%% Comment this out if empty, e.g., for a masters thesis with only a supervisor and cosupervisor.
+\othercommitteemembers{Committee Member 1, Committee Member 2, Committee Member 3}
+
+%% Optional customizations
+%% =======================
+%% Use Palatino as the primary font face
+%%\usepackage{palatino}
+%% and Computer Modern Typewriter Proportional as the teletype font face
+
+\usepackage{amsmath}
+\renewcommand*\ttdefault{cmvtt}
+\newcommand{\Prob}{\text{Pr}}
+\newcommand{\E}{\text{E}}
+\newcommand{\Cov}{\text{Cov}}
+\newcommand{\corr}{\text{corr}}
+\newcommand{\Var}{\text{Var}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\bs}{\boldsymbol}
+\hypersetup{hidelinks}
+\usepackage{pdflscape}
+\usepackage[svgnames]{xcolor}
+\usepackage{listings}
+\usepackage{rotating}
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\usepackage{url}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+
+% for figures
+\usepackage{graphicx}
+
+% *** CITATION PACKAGES ***
+\usepackage[style = apa, backend = biber, sorting = nyt, uniquename = false, uniquelist = false, maxcitenames = 2]{biblatex}
+%\bibliographystyle{apa}
+\addbibresource{references.bib} %Imports bibliography file
+
+\usepackage{multirow,booktabs,setspace,caption}
+\usepackage{tikz}
+
+\DeclareCaptionLabelSeparator*{spaced}{\\[2ex]}
+\captionsetup[table]{textfont=it,format=plain,justification=justified, singlelinecheck=false,labelsep=spaced,skip=0pt}
+\captionsetup[figure]{labelsep=period,labelfont=it,justification=justified, singlelinecheck=false,font=singlespacing}
+
+% *** CUSTOM PACKAGES *** %
+%\usepackage{threeparttable}
+%\usepackage{adjustbox}
+\newcommand{\RN}[1]{%
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}%roman numbering
+
+%%% Spacing
+%\DeclareOption{doublespacing}{\gdef\@setspaceoption{doublespacing}}
+
+\begin{document}
+
+%% This produces the copyright page (if specified), the signature page, and title page.
+
+\maketitle
+
+\begin{dedication}
+Dedicated to 
+\end{dedication}
+
+%% The acknowledgments, abstract, and table(s) of contents/tables/figures pages are numbered with roman numerals.
+
+\begin{acknowledgments}
+
+\end{acknowledgments}
+
+\begin{abstract}
+\input{dissertation_ut/01_abstract}
+\end{abstract}
+
+\maketableofcontents
+
+\chapter{Introduction}
+\input{dissertation_ut/1_intro}
+
+\chapter{Literature Review}
+\input{dissertation_ut/2_lit_review}
+
+\chapter{Methods}
+\input{dissertation_ut/3_methods}
+
+\chapter{Results}
+\input{dissertation_ut/4_results}
+
+\chapter{Discussion}
+\input{dissertation_ut/5_discussion}
+
+%\chapter{Appendix}
+%\input{dissertation_ut/app_a}
+
+\renewcommand{\bibname}{References}
+\printbibliography 
+
+\end{document}
